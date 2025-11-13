@@ -1,0 +1,32 @@
+# demo-a.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: smallest-edge-node-first
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-a
+  namespace: smallest-edge-node-first
+  labels:
+    app: demo-a
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-a
+  template:
+    metadata:
+      labels:
+        app: demo-a
+    spec:
+      schedulerName: smallest-fitting-edge-node   # ← Sencillo にスケジューリングさせる
+      containers:
+        - name: app
+          image: nginx:latest
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+

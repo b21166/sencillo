@@ -14,8 +14,8 @@ scheduler:
 connector:
   mode: "outside"
   masterURL: "172.20.2.4"
-  kubeConfigPath: "/Users/sinashariati/.kube/config"
+  kubeConfigPath: "/home/yashio/.kube/config"
 
 cluster:
-  edgeNodes: [ "uq7j5k991-01", "uq7g5w631-01", "uq7p7x251-01" ]
-  masterNode: "uq7g5t611-01"
+  edgeNodes: [ "k3d-ecmus-agent-0", "k3d-ecmus-agent-1", "k3d-ecmus-agent-2" ]
+  masterNode: "k3d-ecmus-server-0"
